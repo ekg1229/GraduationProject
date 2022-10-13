@@ -19,19 +19,17 @@ import Result_2 from "../components/Result_2";
 export default () => {
   return (
 <>
-<Row className="justify-content-md-center">
+      <Row className="justify-content-md-center">
       <Col xs={12}  className="mb-1">
 <Navbarss/>
       </Col>
       </Row>
-      
       <div className="chart" style={{width:"1000px", height:"500px", margin: "0 auto"}}>
         <StatChart/>
       </div>
       <div className="result" style={{width:"1000px", height:"320px", margin: "0 auto", marginTop: "10px"}}>
         <Result_2/>
       </div>
-
       <Row className="justify-content-md-center">
       <Col xs={12}  className="mb-1">
 <Footer/>

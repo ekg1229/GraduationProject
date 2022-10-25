@@ -32,8 +32,10 @@ export default () => {
       <div className="result" style={{width:"1000px", height:"220px", margin: "0 auto", marginTop: "10px"}}>
         <Result_1/>
       </div>
-      <Row>
-        <Footer/>
+      <Row className="justify-content-md-center">
+      <Col xs={12}  className="mb-1">
+<Footer/>
+      </Col>
       </Row>
     </>
   );

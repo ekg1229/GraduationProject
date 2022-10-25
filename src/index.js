@@ -64,4 +64,7 @@ ReactDOM.render(
     <Redirect to="/login" />
     </Route>  
     
+
+
+     <Route render={props => authenticated ? (render ? render(props) : <Component {...props} />
 */

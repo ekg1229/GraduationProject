@@ -1,11 +1,12 @@
 import React from "react";
 
+//오늘의 한 마디 기능
 function Result_1(props){
   if(props==="1"){//바른 자세
     return(
       <div style={{width:"1000px", height:"200px", border: "3px solid black", background: "white"}}>
         <div>
-          <h3 style={{marginTop: "33px", textAlign:"center"}}>오늘의 한 마디<br/>
+          <h3 style={{marginTop: "33px", textAlign:"center"}}>[ 오늘의 한 마디 ]<br/>
           =======================================</h3>
         </div>
         <div style={{marginTop: "10px", textAlign:"center", fontSize: "21px"}}>
@@ -18,7 +19,7 @@ function Result_1(props){
     return(
       <div style={{width:"1000px", height:"200px", border: "3px solid black", background: "white"}}>
         <div>
-          <h3 style={{marginTop: "33px", textAlign:"center"}}>오늘의 한 마디<br/>
+          <h3 style={{marginTop: "33px", textAlign:"center"}}>[ 오늘의 한 마디 ]<br/>
           =======================================</h3>
         </div>
         <div style={{marginTop: "10px", textAlign:"center", fontSize: "21px"}}>
@@ -31,7 +32,7 @@ function Result_1(props){
     return(
       <div style={{width:"1000px", height:"200px", border: "3px solid black", background: "white"}}>
         <div>
-          <h3 style={{marginTop: "33px", textAlign:"center"}}>오늘의 한 마디<br/>
+          <h3 style={{marginTop: "33px", textAlign:"center"}}>[ 오늘의 한 마디 ]<br/>
           =======================================</h3>
         </div>
         <div style={{marginTop: "10px", textAlign:"center", fontSize: "21px"}}>

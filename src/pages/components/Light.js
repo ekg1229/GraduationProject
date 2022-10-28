@@ -13,11 +13,12 @@ padding: 0 2rem;
 */
 
 function Light(){
-  const [color, setColor] = useState([
-    {id:'1', value:"gray"},
-    {id:'2', value:"red"},
-    {id:'3', value:"yellow"}
-  ]); //신호등 색상 배열(gray, red, yellow, green)
+  const [color, setColor] = useState([ //신호등 색상 배열
+    {id:'1', value1:"green", value2:"gray", value3:"gray"}, //안정
+    {id:'2', value1:"gray", value2:"yellow", value3:"gray"}, //경고
+    {id:'3', value1:"gray", value2:"gray", value3:"red"} //위험
+  ]); //신호등 색상 배열
+
   let [data, setData] = useState([]); //axios data 저장
 
   useEffect(()=>{
@@ -39,9 +40,7 @@ function Light(){
   }, []);
   
   return(
-    <div style={{display: "flex", width: "1000px", height: "300px", margin: "0 auto", display: 'flex', flexDirection: 'row'}}>
-      {color.map((item)=>{return <TrafficLight key={item.id} color={item.color}/>})}
-    </div>
+      <TrafficLight/>
   );
 }
 

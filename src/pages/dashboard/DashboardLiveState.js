@@ -35,7 +35,7 @@ export default () => {
       </Row>
 
       {/*Nav 밑에 여백*/}
-      <Row xs={1} style={{height: "12vh"}}></Row>
+      <Row xs={1} style={{height: "12vh", fontSize: "2.5rem", textAlign:"center", alignItems: "center", justifyContent: "center", margin: "0 auto", color: "black"}}>실시간 척추 상태 신호등</Row>
 
       {/*데이터 없을 때 음영 처리*/}
       <LightError/>

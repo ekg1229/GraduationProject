@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 
 //데이터 없을 때 안내문
 function LightError(){
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const HandleBtn = () =>{
-    setShow(true);
+    setShow(false);
   }
 
   if(show){ //안내문구 보여줌

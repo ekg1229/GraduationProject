@@ -3,6 +3,7 @@ import TrafficLight from "./TrafficLight";
 import axios from 'axios';
 import LightError from "./Light_error";
 import Result_1 from "../components/Result_1";
+import useDidMountEffect from "./useDidMountEffect";
 
 //실시간 척추 상태 신호등 데이터 처리
 function Light(){
@@ -11,18 +12,30 @@ function Light(){
   //자세 상태를 나타내는 state변수
   const [state, setState] = useState("");
 
-  //데이터 정상적으로 들어오는지
+  //데이터가 정상적으로 들어오는지
   const [dataCheck, setDataCheck] = useState(true);
-  
+
   useEffect(()=>{
     //서버에 데이터 요청(POST)  
+    /*
+    async function postData(){
+      try{
+      const response = await axios.post("/api/graph/liveState");
+      console.log("res.data : " + response);
+      setData(response.data);
+      console.log("adfasdfasdfas",data);
+      console.log("success!"); //success
+      } 
+      catch(error){
+        console.log(error);
+      }    
+    }
+    */
+    
     const postData = () => {axios.post("/api/graph/liveState")
-      .then((res)=>{
-        console.log("res.data:" + res.data);
-        console.log(res.data);
+      .then(res => {
+        console.log("res.data: ", res.data);
         setData(res.data);
-        console.log("JSON.stringify(res.data): " + JSON.stringify(res.data));
-        //setData(JSON.stringify(res.data));
         console.log("success!"); //success
       })
       .catch(res=>{
@@ -34,11 +47,17 @@ function Light(){
     //1초마다 서버에 데이터 요청
     let interval = setInterval(()=>{
       postData();
-      console.log("data: " + data);
-      parser();
     }, 1000);
+    
+    //언마운트
+    return () => {
+      console.log("axios 요청 중단");
+      clearInterval(interval);
+    }
+  }, []);
 
-    /*-------------------------------------------------*/
+  useDidMountEffect(()=>{
+    console.log("data4: "+ JSON.stringify(data));
 
     //데이터 처리
     const parser = () =>{
@@ -56,7 +75,7 @@ function Light(){
       console.log("avgAccuracy: " + avgAccuracy);
 
       //데이터 없을 시, 잘못된 데이터
-      if(data==null) setDataCheck(false);
+      if(data==null || data==undefined) setDataCheck(false);
       console.log("dataCheck: " + dataCheck);
 
       //result
@@ -92,15 +111,8 @@ function Light(){
       console.log("state:" + state);
       */
     }
-
-    /*-------------------------------------------------*/
-
-    //언마운트
-    return () => {
-      console.log("axios 요청 중단");
-      clearInterval(interval);
-    }
-  }, []);
+    parser();
+  }, [data])
 
   return(
     <>

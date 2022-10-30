@@ -15,11 +15,12 @@ import Footer from "../components/Navbar/Footer";
 
 import Light from "../components/Light";
 import {Helmet} from'react-helmet'
+import '../../App.css'
 
 //신호등 페이지
 export default () => {
   return (
-    <div style={{background: "#E0F2FE",}}>
+    <div className="App" style={{background: "#E0F2FE",}}>
     <Helmet>
       <title>척추요정 신호등 페이지</title>
     </Helmet>

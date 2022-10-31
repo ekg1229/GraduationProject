@@ -81,6 +81,13 @@ function StatChart(){
           size: 24
         }
       }
+    },
+    scales:{
+      x:{
+        ticks: {
+          minRotation: 30,
+        }
+      },
     }
   }
   

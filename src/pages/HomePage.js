@@ -9,13 +9,13 @@ import DashboardOverview from "./dashboard/DashboardOverview";
 import Transactions from "./Transactions";
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
-import Signin from "./examples/Signin";
-import Signup from "./examples/Signup";
-import ForgotPassword from "./examples/ForgotPassword";
-import ResetPassword from "./examples/ResetPassword";
-import Lock from "./examples/Lock";
-import NotFoundPage from "./examples/NotFound";
-import ServerError from "./examples/ServerError";
+import Signin from "./account/Signin";
+import Signup from "./account/Signup";
+import ForgotPassword from "./account/ForgotPassword";
+import ResetPassword from "./account/ResetPassword";
+import Lock from "./account/Lock";
+import NotFoundPage from "./account/NotFound";
+import ServerError from "./account/ServerError";
 
 // documentation pages
 import DocsOverview from "./documentation/DocsOverview";
@@ -29,7 +29,7 @@ import DocsChangelog from "./documentation/DocsChangelog";
 // components
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "/home/front/ReactProject3/src/pages/components/Navbar/Footer.js";
 import Preloader from "../components/Preloader";
 
 import Accordion from "./components/Accordion";

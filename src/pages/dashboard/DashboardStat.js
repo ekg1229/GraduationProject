@@ -3,25 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 
-import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
-import { PageVisitsTable } from "../../components/Tables";
-import { trafficShares, totalOrders } from "../../data/charts";
-import { Link } from "react-router-dom";
-import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import Gachon from "../../assets/img/gachonlogo.png"
 import Navbarss from "../components/Navbar/Navbarss";
 import Footer from "../components/Navbar/Footer";
 
 import StatChart from "../components/Stat";
+import StatChart2 from "../components/Stat2";
 import Result_2 from "../components/Result_2";
 
 import {Helmet} from'react-helmet'
 import '../../App.css'
+import './DashboardStat.css';
 
 //사용 통계 페이지
 export default () => {
   return (
-    <div className="App" style={{background: "#E0F2FE",}}>
+    <div className="App" style={{background: "#E0F2FE"}}>
     <Helmet>
       <title>척추요정 사용 통계 페이지</title>
     </Helmet>
@@ -34,32 +31,44 @@ export default () => {
       </Row>
 
       {/*Nav 밑에 여백*/}
-      <Row xs={1} style={{height: "12vh", fontSize: "2.9rem", textAlign:"center", alignItems: "center", justifyContent: "center", margin: "0 auto", color: "black"}}> <b> 사용통계 </b> </Row>
+      <div className="tab-area" style={{marginTop: "2.9rem", marginBottom: "2.9rem"}}>
+          <input type="radio" name="tabs" id="tab1" checked/>
+          <label for="tab1">사용량 통계</label>
 
-      <Col xs={12} xl={12} className="mb-4" >
-        <Row>
-        <Col xs={12} xl={1} className="mb-4" ></Col>
-      
-        {/*사용통계 영역*/}
-        <Col xs={12} xl={10} className="mb-4" style={{background: '#F1F6F5'}}>
-        <h2></h2>
-        <div className="chart" style={{position:"realative", width:"1000px", height:"500px", margin: "0 auto"}}>
-          <StatChart/>
+          <input type="radio" name="tabs" id="tab2"/>
+          <label for="tab2" style={{marginLeft: "1rem"}}>사용 분석</label>
+
+        <br/>
+
+        <div id="content1" className="tab-content stat1">
+            {/*사용통계1 영역*/}
+            <Col xs={12} xl={1} className="mb-4" style={{width: "60vw", height: "70vh", alignItems: "center", justifyContent: "center", margin: "0 auto", background: '#F1F6F5', borderRadius: '15px',}}>
+              <br/><StatChart/>
+            </Col>
         </div>
-        <div className="result" style={{width:"1000px", height:"320px", margin: "0 auto", marginTop: "10px"}}>
-          <Result_2/>
+        
+        <div id="content2" class="tab-content stat2">
+          <Col xs={12} xl={12} className="mb-4" >
+            <Row>
+            <Col xs={12} xl={1} className="mb-4" ></Col>
+          
+            {/*사용통계2 영역*/}
+            <Col xs={12} xl={1} className="mb-4" style={{width: "60vw", height: "70vh", alignItems: "center", justifyContent: "center", margin: "0 auto", background: '#F1F6F5', borderRadius: '15px',}}>
+              <br/><StatChart2/>
+            </Col>
+
+            <Col xs={12} xl={1} className="mb-4" ></Col>
+
+            </Row>
+          </Col>
         </div>
-        </Col>
 
-        <Col xs={12} xl={1} className="mb-4" ></Col>
-
-        </Row>
-      </Col>
+      </div>
 
       {/*Footer 영역*/}
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center" style={{height: "30vh", background: "#E0F2FE",}}>
         <Col xs={12}  className="mb-1" >
-    <Footer/>
+          <Footer/>
         </Col>
       </Row>
     </div>

@@ -11,7 +11,7 @@ function LightError(){
   if(show){ //안내문구 보여줌
     return(
       <>
-        <div style={{position: "fixed", top: "0px", left: "0px", width: "100%", height: "100%", zIndex: "10", opacity: "0.5", backgroundColor: "rgb(0, 0, 0)"}}></div>
+        <div style={{position: "fixed", top: "7vh", left: "0px", width: "100%", height: "100%", zIndex: "10", opacity: "0.5", backgroundColor: "rgb(0, 0, 0)"}}></div>
         <div style={{position: "absolute", top: "50%", left: "50%", width: "400px", minHeight: "300px", margin: "-150px 0 0 -200px", padding: "10px", textAlign: "center", zIndex: "20", backgroundColor: "white", fontSize: "1.4rem"}}>
           <div style={{width:"auto", height:"auto", border: "3px solid black", background: "white"}}>
               <br/><h3 style={{fontWeight: "bold"}}>안내문</h3><br/>

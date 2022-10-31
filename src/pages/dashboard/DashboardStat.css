@@ -1,0 +1,65 @@
+body {
+  height: 100%;
+  padding: 0%;
+  margin: 0%;
+}
+
+
+/* 1. tab 영역 css 설정 */
+.tab-area {
+  font-size: 2.9rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+/* 2. tab 메뉴 부분 디자인 */
+.tab-area input {
+  display: none;
+}  
+
+.tab-area label {
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+/* label에 마우스 올렸을 때 */
+.tab-area label:hover {
+  cursor: pointer; /*마우스 모양 변경*/
+}
+  
+/* tab-area 안에 존재하는 input 태그가 체크되었을 때, 
+체크된 input 태그 다음에 등장하는 label의 css 값 */
+.tab-area input:checked + label {
+  /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
+  font-weight: bold;
+  color: red;
+}
+  
+
+/* 3. tab 내용 부분 디자인 */
+.tab-content {
+  width: 100%; /*부모 div width와 같은 width를 가진다.*/
+  height: 500px;
+  display: none; /*기본 값일땐 화면에 표시하지 않음. 체크 상태일 때, 화면에 표시되어야 함 */
+  border-top: 2px solid rgba(200, 200, 200, 0.534);/*탭 메뉴와 내용구분선*/
+}
+
+/* input 태그가 체크 상태일떼, 이에 대응하는 content?를 display에 표시하도록 설정 */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: flex;
+}
+
+/* 구분을 위해 추가 */
+.stat1 {
+}
+
+.stat2 {
+}

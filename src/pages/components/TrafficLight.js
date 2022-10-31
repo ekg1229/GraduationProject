@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 //상태에 따라 신호등 제어
 function TrafficLight(props){
   const state = props.state;

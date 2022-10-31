@@ -18,6 +18,8 @@ import Result_2 from "../components/Result_2";
 import {Helmet} from'react-helmet'
 import '../../App.css'
 
+import ReactPlayer from "react-player";
+
 //사용 통계 페이지
 export default () => {
   return (
@@ -34,21 +36,23 @@ export default () => {
       </Row>
 
       {/*Nav 밑에 여백*/}
-      <Row xs={1} style={{height: "12vh", fontSize: "2.9rem", textAlign:"center", alignItems: "center", justifyContent: "center", margin: "0 auto", color: "black"}}> <b> 사용통계 </b> </Row>
+      
+      <Row xs={1} style={{height: "15vh", fontSize: "2.9rem", textAlign:"center", alignItems: "center", justifyContent: "center", margin: "0 auto", color: "black"}}> <b> 사용통계 </b> 
+      </Row>
 
       <Col xs={12} xl={12} className="mb-4" >
         <Row>
         <Col xs={12} xl={1} className="mb-4" ></Col>
       
         {/*사용통계 영역*/}
-        <Col xs={12} xl={10} className="mb-4" style={{background: '#F1F6F5'}}>
-        <h2></h2>
-        <div className="chart" style={{position:"realative", width:"1000px", height:"500px", margin: "0 auto"}}>
+        <Col xs={12} xl={1} className="mb-4" style={{width: "100vh", height: "55vh", background: '#F1F6F5', borderRadius: '15px', alignItems: "center", justifyContent: "center", margin: "0 auto",}}>
+        <br/><StatChart/>
+        {/* <Col xs={12} xl={10} className="mb-4" style={{position:"realative", width:"1000px", height:"500px", margin: "0 auto"}}>
           <StatChart/>
-        </div>
-        <div className="result" style={{width:"1000px", height:"320px", margin: "0 auto", marginTop: "10px"}}>
+        </Col> */}
+        {/* <div className="result" style={{width:"1000px", height:"320px", margin: "0 auto", marginTop: "10px"}}>
           <Result_2/>
-        </div>
+        </div> */}
         </Col>
 
         <Col xs={12} xl={1} className="mb-4" ></Col>

@@ -12,7 +12,7 @@ function StatChart(){
   useEffect(()=>{
     const postData = () =>{axios.post("/api/graph/usage")
       .then(res => {
-        console.log("res.data: " + res.data);
+        console.log("data: " + res.data);
         setRawData(res.data);
         console.log("success!"); //success
       })
@@ -44,7 +44,7 @@ function StatChart(){
       let usage_data = usage.map(function(element){
         return (Math.floor(element/60) + "분 " + (element-((Math.floor(element/60))*60)).toFixed(2)+ "초")
       })
-      console.log("usage_data: " + usage_data);
+      //console.log("usage_data: " + usage_data);
       setDatasetData(usage); //사용 요청 시간
 
       let axisX = rawdata.axisX;
@@ -67,20 +67,6 @@ function StatChart(){
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgba(255, 99, 132, 0.2)',
         },
-        // {
-        //     label: 'Sensor2',
-        //     data: [1, 2, 4, 11, 7, 2, 9, 8],
-        //     fill: false,
-        //     backgroundColor: 'rgb(54, 162, 235)',
-        //     borderColor: 'rgba(54, 162, 235, 0.2)',
-        // },
-        // {
-        //   label: 'Sensor3',
-        //   data: [10, 12, 14, 1, 17, 5, 19, 18],
-        //   fill: false,
-        //   backgroundColor: 'rgba(75, 192, 192, 1)',
-        //   borderColor: 'rgba(75, 192, 192, 0.2)',
-        // },
     ],
   };
   
@@ -90,6 +76,7 @@ function StatChart(){
       subtitle:{
         display: true,
         color: "#000000",
+        text: "사용자의 일일 사용량(분)",
         font: {
           size: 24
         }

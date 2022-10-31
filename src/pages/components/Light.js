@@ -6,6 +6,7 @@ import LightError from "./Light_error";
 import TrafficLight from "./TrafficLight";
 import Result_1 from "../components/Result_1";
 
+
 //실시간 척추 상태 신호등 데이터 처리
 function Light(){
   const [data, setData] = useState([]); //axios data 저장(JSON)
@@ -30,6 +31,7 @@ function Light(){
       })
       .catch(res => {
         console.log(res); //error
+        setDataCheck(false);
         console.log("error!"); //error
       })
     }
@@ -47,7 +49,7 @@ function Light(){
   }, []);
 
   useDidMountEffect(() => {
-    console.log("data4: "+ JSON.stringify(data));
+    console.log("data: "+ JSON.stringify(data));
 
     //데이터 처리
     const parser = () =>{
@@ -65,7 +67,10 @@ function Light(){
       console.log("avgAccuracy: " + avgAccuracy);
 
       //데이터 없을 시, 잘못된 데이터
-      if(data==null || data==undefined) setDataCheck(false);
+      if(isNaN(avgBackforth) || avgBackforth==undefined) setDataCheck(false);
+      if(isNaN(avgLeft) || avgLeft==undefined) setDataCheck(false);
+      if(isNaN(avgRight) || avgRight==undefined) setDataCheck(false);
+      if(isNaN(avgAccuracy) || avgAccuracy==undefined) setDataCheck(false);
       console.log("dataCheck: " + dataCheck);
 
       //result
@@ -73,8 +78,8 @@ function Light(){
       console.log("result: " + result);
 
       //data processing logic(TrafficLight)
-      if(result>=0 && result<=0.7) setState("1"); //안정
-      else if(result>0.7 && result<=1.4) setState("2"); //경고
+      if(result <= 0.7) setState("1"); //안정
+      else if(result <= 1.4) setState("2"); //경고
       else setState("3"); //위험
       console.log("state:" + state);
 
@@ -83,30 +88,29 @@ function Light(){
       console.log("Backforth: " + Backforth);
       
       if((avgLeft>=0 && avgLeft<=0.7) && (avgRight>=0 && avgRight<=0.7)) setLeftRight(true);
-      if(isNaN(avgRight) && (avgLeft>=0 && avgLeft<=0.7)) setLeftRight(true);
-      if(isNaN(avgLeft) && (avgRight>=0 && avgRight<=0.7)) setLeftRight(true);
       console.log("LeftRight: " + LeftRight);
       
       if(avgAccuracy>=0 && avgAccuracy<=0.7) setAccuracy(true);
       console.log("Accuracy: " + Accuracy);
 
-      //자세 상태에 따른 setState
-      if(Backforth && LeftRight && Accuracy) setState("1"); //안정
-      else if(!Backforth && !LeftRight & !Accuracy) setState("3"); //위험
-      else setState("2"); //경고
-      console.log("state:" + state);
-      
+      // //자세 상태에 따른 setState
+      // if(Backforth && LeftRight && Accuracy) setState1("1"); //안정
+      // else if(!Backforth && !LeftRight & !Accuracy) setState1("3"); //위험
+      // else setState1("2"); //경고
+      // console.log("state1:" + state1);
     }
+
     parser();
+
   }, [data])
 
   return(
-    <>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", margin: "0 auto"}}>
       {dataCheck ? (//데이터 들어올 때
         <div>
           <div className="mb-4" style={{display: "flex", justifyContent: "center", alignItems: "center", width: "50%", height: "350px", margin: "0 auto"}}>
             <div className="mb-4" style={{display: "flex", justifyContent: "center", alignItems: "center", width: "1000px", height: "300px", margin: "0 auto", borderRadius: "500px", background: "black", boxShadow: "5px 5px"}}>
-              <TrafficLight state={state}/>
+              <TrafficLight  state={state}/>
             </div>
           </div>
           <div className="result" style={{display: "flex", justifyContent: "center", alignItems: "center", width:"1000px", height:"250px", margin: "0 auto"}}>
@@ -127,7 +131,7 @@ function Light(){
           </div>
         )
       }
-    </>
+    </div>
   );
 }
 

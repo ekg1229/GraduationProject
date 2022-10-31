@@ -4,6 +4,7 @@ import 'chart.js/auto';
 import axios from "axios";
 import useDidMountEffect from "./useDidMountEffect"
 
+//사용통계_사용 분석
 function StatChart2(){
   const [rawdata, setRawData] = useState([]); //axios data 저장(JSON)
   const [loading, setLoading] = useState(false);

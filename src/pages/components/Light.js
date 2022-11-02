@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import useDidMountEffect from "./useDidMountEffect";
 import axios from 'axios';
 
-import { Spinner } from "@themesberg/react-bootstrap";
 import LightError from "./Light_error";
 import TrafficLight from "./TrafficLight";
 import Result_1 from "../components/Result_1";
@@ -62,12 +61,12 @@ function Light(){
     return () => {
       temp.current = !temp.current;
       console.log("axios 요청 중단");
-      //clearInterval(interval);
+      // clearInterval(interval);
     }
   }, []);
 
   useDidMountEffect(() => {
-    // console.log("data: "+ JSON.stringify(data));
+    console.log("data: "+ JSON.stringify(data));
 
     //데이터 처리
     const parser = () =>{
@@ -97,18 +96,21 @@ function Light(){
 
       //data processing logic(TrafficLight)
       if(result < 2) setState("1"); //안정
-      else if(result < 4) setState("2"); //경고
+      else if(result < 3) setState("2"); //경고
       else setState("3"); //위험
       // console.log("state:" + state);
 
       //data processing logic(result_1)
-      if(avgBackforth>=0 && avgBackforth<=0.7)setBackForth(true);
+      if(avgBackforth>=0 && avgBackforth<=0.7) setBackForth(true);
+      else setBackForth(false);
       // console.log("Backforth: " + Backforth);
       
       if((avgLeft>=0 && avgLeft<=0.7) && (avgRight>=0 && avgRight<=0.7)) setLeftRight(true);
+      else setLeftRight(false);
       // console.log("LeftRight: " + LeftRight);
       
       if(avgAccuracy>=0 && avgAccuracy<=1.0) setAccuracy(true);
+      else setAccuracy(false);
       // console.log("Accuracy: " + Accuracy);
 
       // //자세 상태에 따른 setState

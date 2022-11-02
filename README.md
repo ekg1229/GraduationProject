@@ -7,8 +7,7 @@
 <메뉴구조도>
 </p>
 
-본 프로젝트의 목표는 척추 부근에 센서를 달아 얻는 데이터를 통해 사용자의 현재 허리 상태를 측정하고 이를 처리하여 사용자가 현재 자신의 허리 자세를 인지하고 올바른 자세를 취할 수 있게 하는 것입니다. 본 레포지토리에서는 **프론트엔드인 ReactJS**만 다룹니다.     
-**백엔드**는 https://github.com/Mangcho/GraduationProject 에서 확인하실 수 있습니다.
+본 프로젝트의 목표는 척추 부근에 센서를 달아 얻는 데이터를 통해 사용자의 현재 허리 상태를 측정하고 이를 처리하여 사용자가 현재 자신의 허리 자세를 인지하고 올바른 자세를 취할 수 있게 하는 것입니다. 본 레포지토리에서는 **프론트엔드인 ReactJS**만 다룹니다.
 
 ## 화면 설계
 1. 로그인 및 회원가입 페이지
@@ -43,3 +42,7 @@
 ## 개발 스택
 
 - Framework : Reactjs
+
+## 다른 팀원들의 코드
+* [Backend](https://github.com/Mangcho/GraduationProject)
+* [IoT-RasberyPi](https://github.com/yukwanwoo/2022-project-pi)
